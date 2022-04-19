@@ -3,8 +3,8 @@
 //-------------------
 let model;
 
-var canvasWidth           	= 550;
-var canvasHeight 			= 490;
+var canvasWidth           	= 500;
+var canvasHeight 			= 480;
 var canvasStrokeStyle		= "white";
 var canvasLineJoin			= "round";
 var canvasLineWidth       	= 15;
@@ -251,8 +251,8 @@ function loadChart(label, data, modelSelected) {
 	        labels: label,
 	        datasets: [{
 	            label: modelSelected + " prediction",
-	            backgroundColor: '#f50057',
-	            borderColor: 'rgb(255, 99, 132)',
+	            backgroundColor: '#9deb0e',
+	            borderColor: 'rgb( 107, 107, 107)',
 	            data: data,
 	        }]
 	    },
@@ -278,7 +278,8 @@ function displayChart(data) {
 		chart.destroy();
 		loadChart(label, data, select_option);
 	}
-	document.getElementById('chart_box').style.display = "block";
+	document.getElementById('chart_box').style.display = "inline-block";
+
 }
 
 function displayLabel(data) {
@@ -291,6 +292,7 @@ function displayLabel(data) {
             max = data[i];
         }
     }
-	$(".prediction-text").html("Predicting you draw <b>"+maxIndex+"</b> with <b>"+Math.trunc( max*100 )+"%</b> confidence")
+	$(".prediction-text").html("Predicting you drew <b>"+maxIndex+"</b> with <b>"+Math.trunc( max*100 )+"%</b> confidence.")
+	document.getElementById('pred').style.display = "block";
 }
 
